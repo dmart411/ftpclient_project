@@ -36,7 +36,7 @@ def __main__():
 
 		if command.upper() == 'QUIT':
 			command = 'QUIT\r\n'
-			send(command,commandch)
+			send(command, commandch)
 			response = commandch.recv(1024)
 			print(response.decode())
 			commandch.close()
@@ -44,8 +44,7 @@ def __main__():
 
 		if command[:3].upper() == 'CD ':
 			command = 'CWD '+ command[3:] +'\r\n'
-			command = command.encode()
-			commandch.send(command)
+			send(command, commandch)
 			response = commandch.recv(1024)
 			print(response.decode())
 
@@ -53,8 +52,7 @@ def __main__():
 			file = command[4:]
 			datach = PASV(commandch, serverName)
 			command = 'RETR ' + file + '\r\n'
-			command = command.encode()
-			commandch.send(command)
+			send(command, commandch)
 			response = commandch.recv(1024)
 			print(response.decode())
 			file_data = datach.recv(1024).decode()
@@ -72,8 +70,7 @@ def __main__():
 			file = command[4:]
 			datach = PASV(commandch, serverName)
 			command = 'STOR ' + file + '\r\n'
-			command = command.encode()
-			commandch.send(command)
+			send(command, commandch)
 			response = commandch.recv(1024)
 			print(response.decode())
 			f = open(file)
@@ -90,16 +87,15 @@ def __main__():
 		if command[:6].upper() == R'DELETE':
 
 			command = 'DELE ' + command[7:] + '\r\n'
-			command = command.encode()
-			commandch.send(command)
+			send(command, commandch)
 			response = commandch.recv(1024)
 			print(response.decode())
 
 		
 		if command.upper() == 'LS':
 			datach = PASV(commandch, serverName)
-			command = b'LIST\r\n'
-			commandch.send(command)
+			command = 'LIST\r\n'
+			send(command, commandch)
 			response = commandch.recv(2048)
 			print(response.decode()) 
 			response = datach.recv(2048)
@@ -110,8 +106,8 @@ def __main__():
 
 			
 def send(msg,channel):
-    message = msg.encode(BYTEFORMAT)
-    channel.send(message)
+	message = msg.encode(BYTEFORMAT)
+	channel.send(message)
 			
 #returns port for data socket
 def parsePASV(message):
