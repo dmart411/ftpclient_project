@@ -104,7 +104,7 @@ def __main__():
 			response = commandch.recv(2048)
 			print(response.decode())
 			datach.close()
-
+#returns port for data socket
 def parsePASV(message):
 	message = message.decode()
 	m = message[message.find('(')+1:message.find(')')]
