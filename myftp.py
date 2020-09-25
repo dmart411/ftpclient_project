@@ -32,8 +32,8 @@ def __main__():
 		command = input('ftp> ')
 
 		if command.upper() == 'QUIT':
-			command = b'QUIT\r\n'
-			commandch.send(command)
+			command = 'QUIT\r\n'
+			send(command,commandch)
 			response = commandch.recv(1024)
 			print(response.decode())
 			commandch.close()
