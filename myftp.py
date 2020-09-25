@@ -44,7 +44,7 @@ def __main__():
 
 		if command[:3].upper() == 'CD ':
 			command = 'CWD '+ command[3:] +'\r\n'
-			send(command, commandch)
+			send(command,commandch)
 			response = commandch.recv(1024)
 			print(response.decode())
 
