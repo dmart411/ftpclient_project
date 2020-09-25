@@ -3,6 +3,9 @@ import sys
 import time
 import os
 
+ASCIIFORMAT = 'ASCII'
+BYTEFORMAT = 'utf-8'
+
 def __main__():
 
 	if len(sys.argv) != 2:
