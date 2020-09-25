@@ -104,6 +104,12 @@ def __main__():
 			response = commandch.recv(2048)
 			print(response.decode())
 			datach.close()
+
+			
+def send(msg,channel):
+    message = msg.encode(BYTEFORMAT)
+    channel.send(message)
+			
 #returns port for data socket
 def parsePASV(message):
 	message = message.decode()
