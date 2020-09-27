@@ -1,10 +1,15 @@
 FTP Client 
-Project 1 for CNT4713 Net-centric Computing
+Project for CNT4713 Net-centric Computing
 
-Assignemnt Group 2 Members:
+Collaborators:
 
-Daniel Martinez
+Daniel Martinez, Alexander Brix
 
-Alexander Brix
-
-Language Used: Python
+FTP Client script that connects to the server passed as a command line argument. 
+Implemented with TCP sockets and implements the following commands:
+get
+put
+ls
+delete
+cd
+quit
