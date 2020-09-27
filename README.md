@@ -7,9 +7,9 @@ Daniel Martinez, Alexander Brix
 
 FTP Client script that connects to the server passed as a command line argument. 
 Implemented with TCP sockets and implements the following commands:
-get
-put
-ls
-delete
-cd
+get,
+put,
+ls,
+delete,
+cd,
 quit
